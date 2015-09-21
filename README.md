@@ -1,5 +1,5 @@
 # World Craft Beta #
-World craft is a simple game written in Java. At this moment, I am completely rewriting the engine, and eventually will redo the rendering system, using a new pixel based system. The game has many similarities to Minecraft and Terraria.
+World craft is a simple game written in Java. At this moment, I am completely rewriting the engine. The game has many similarities to Minecraft and Terraria.
 
 ## Todo List ##
 1. Rewrite entire game engine (WIP)
