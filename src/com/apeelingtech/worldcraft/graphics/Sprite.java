@@ -180,8 +180,8 @@ public class Sprite {
 	public void draw(Graphics g, double x, double y, Level level) {
 		int nX = ((int) x * width) + (int)((x - (int) x) * width); // Convert's blocks to pixels
 		int nY = ((int) y * height) + (int)((y - (int) y) * height);
-		int nSX = level.xOffset;
-		int nSY = level.yOffset;
+		int nSX = level.getXOffsetPixels();
+		int nSY = level.getYOffsetPixels();
 		//g.drawImage()
 		g.drawImage(getImage(), nX - nSX, nY - nSY, nX + width - nSX, nY + height - nSY, this.x, this.y, this.x + this.width, this.y + this.height, null);
 	}
@@ -199,8 +199,8 @@ public class Sprite {
 	public void drawWithScale(Graphics g, double x, double y, int width, int height, Level level) {
 		int nX = ((int) x * width) + (int)((x - (int) x) * width); // Convert's blocks to pixels
 		int nY = ((int) y * height) + (int)((y - (int) y) * height);
-		int nSX = level.xOffset;
-		int nSY = level.yOffset;
+		int nSX = level.getXOffsetPixels();
+		int nSY = level.getYOffsetPixels();
 		
 		g.drawImage(getImage(), nX - nSX, nY - nSY, nX + width - nSX, nY + height - nSY, this.x, this.y, this.x + this.width, this.y + this.height, null);
 	}

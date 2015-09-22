@@ -30,7 +30,7 @@ public class Level {
 	private int worldWidth = 2000, worldHeight = 2000;
 	private volatile ArrayList<Block> blocks = new ArrayList<>();
 	private volatile ArrayList<Entity> entities = new ArrayList<>();
-	public int xOffset = 0, yOffset = ((worldHeight - 2) / 4) * Resources.tileSize, chunk = 1; // Offset of blocks, in pixels???
+	private int xOffset = 0, yOffset = ((worldHeight - 2) / 4) * Resources.tileSize, chunk = 1; // Offset of blocks, in pixels
 	private Random rand;
 	
 	public Level(long seed) {
@@ -110,7 +110,7 @@ public class Level {
 			}
 		}
 		
-		System.out.println(chunk + " : " + ((double)xOffset / (double)Resources.tileSize) + " : " + ((double)yOffset / (double)Resources.tileSize));
+		// System.out.println(chunk + " : " + ((double)xOffset / (double)Resources.tileSize) + " : " + ((double)yOffset / (double)Resources.tileSize));
 		for (int x = (20 * chunk) - 40; x <= (20 * chunk) + 20; x++) {
 			if (x < 0 || x + (Game.SIZE.width / Resources.tileSize) > worldWidth) {
 				continue;
@@ -143,7 +143,7 @@ public class Level {
 		for (Entity entity : entities) {
 			entity.render(g, interpolation);
 		}
-		System.out.println(entities + "");
+		//System.out.println(entities + "");
 		
 		Sprite.invCell.draw(g, 5, 5);
 		
@@ -171,5 +171,42 @@ public class Level {
 	 * @param entity Entity to be removed.
 	 */
 	public void removeEntity(Entity entity) { entities.remove(entity); } // Will this work!?!?
-	
+
+	public int getXOffsetPixels() {
+		return xOffset;
+	}
+
+	public int getYOffsetPixels() {
+		return yOffset;
+	}
+
+	public int getXOffsetBlocks() {
+		return xOffset / Resources.tileSize;
+	}
+
+	public int getYOffsetBlocks() {
+		return yOffset / Resources.tileSize;
+	}
+
+	public void addOffsetPixels(int xOffset, int yOffset) {
+		this.xOffset += xOffset;
+		this.yOffset += yOffset;
+	}
+
+	public void addXOffsetPixels(int xOffset) {
+		this.xOffset += xOffset;
+	}
+
+	public void addYOffsetPixels(int yOffset) {
+		this.yOffset += yOffset;
+	}
+
+	public void addXOffsetBlocks(int xOffset) {
+		this.xOffset += xOffset * Resources.tileSize;
+	}
+
+	public void addYOffsetBlocks(int yOffset) {
+		this.yOffset += yOffset * Resources.tileSize;
+	}
+
 }

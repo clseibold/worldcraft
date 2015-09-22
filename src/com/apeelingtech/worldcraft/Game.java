@@ -65,10 +65,9 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	public synchronized void init() {
-		
 		// Define objects here
 		level = new Level(new Random().nextLong());
-		basicMob = new BasicMob(20.5, 20.5, level);
+		basicMob = new BasicMob(level.getXOffsetBlocks(), level.getYOffsetBlocks(), level);
 	}
 	
 	public synchronized void stop() {
@@ -158,18 +157,22 @@ public class Game extends Canvas implements Runnable {
 		level.tick();
 		
 		if (input.down) {
-			level.yOffset += 10;
-		} else if (input.up && level.yOffset > 1.0 * Resources.tileSize) {
-			level.yOffset -= 10;
+			// level.addYOffsetPixels(10);
+			basicMob.changePositionBy(0.0, 0.05);
+		} else if (input.up && level.getYOffsetPixels() > 1.0 * Resources.tileSize) {
+			// level.addYOffsetPixels(-10);
+			basicMob.changePositionBy(0.0, -0.05);
 		}
 		if (input.right) { // Do eventually, make stop at end of level
-			level.xOffset += 10;
-		} else if (input.left && level.xOffset > 1.0 * Resources.tileSize) {
-			level.xOffset -= 10;
+			// level.addXOffsetPixels(10);
+			basicMob.changePositionBy(-0.05, 0.0);
+		} else if (input.left && level.getXOffsetPixels() > 1.0 * Resources.tileSize) {
+			// level.addXOffsetPixels(-10);
+			basicMob.changePositionBy(-0.05, 0.0);
 		}
 		if (input.dragging) {
-			level.xOffset -= input.X - input.pressX;
-			level.yOffset -= input.Y - input.pressY;
+			level.addXOffsetPixels(-(input.X - input.pressX));
+			level.addYOffsetPixels(-(input.Y - input.pressY));
 			input.pressX = input.X;
 			input.pressY = input.Y;
 		}

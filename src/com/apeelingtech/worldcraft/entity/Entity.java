@@ -50,7 +50,7 @@ public abstract class Entity {
 	 * @param x Amount to be added to X position, in blocks
 	 * @param y Amount to be added to Y position, in blocks
 	 */
-	public final void changePositionBy(int x, int y) {
+	public final void changePositionBy(double x, double y) {
 		this.x += x;
 		this.y += y;
 	}
