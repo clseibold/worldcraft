@@ -3,6 +3,7 @@ package com.apeelingtech.worldcraft.level;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Vector;
 
 import com.apeelingtech.worldcraft.Game;
 import com.apeelingtech.worldcraft.blocks.Airblock;
@@ -27,17 +28,31 @@ import com.apeelingtech.worldcraft.util.Resources;
 
 public class Level {
 	
-	private int worldWidth = 2000, worldHeight = 2000;
+	public final int worldWidth = 2000, worldHeight = 2000;
 	private volatile ArrayList<Block> blocks = new ArrayList<>();
 	private volatile ArrayList<Entity> entities = new ArrayList<>();
-	private int xOffset = 0, yOffset = ((worldHeight - 2) / 4) * Resources.tileSize, chunk = 1; // Offset of blocks, in pixels
+	private int xOffset = 1 * Resources.tileSize, yOffset = ((worldHeight - 2) / 4) * Resources.tileSize, chunk = 1; // Offset of blocks, in pixels
 	private Random rand;
+    private Vector2 composition[];
 	
 	public Level(long seed) {
 		rand = new Random();
 		rand.setSeed(seed);
-		generateLevel();
-	}
+
+        int percents[] = {5, 23, 27, 30, 30, 20, 20, 500};
+        int total = 0;
+        for (int i : percents) {
+            total += i;
+        }
+        composition = new Vector2[percents.length];
+        int last = 0;
+        for (int i = 0; i < percents.length; i++) {
+            composition[i] = new Vector2(last, last + percents[i]);
+            last += percents[i];
+            composition[i].scale(total, 100);
+        }
+        generateLevel();
+    }
 	
 	private void generateLevel() {
 		int currentChunk = 0;
@@ -53,7 +68,9 @@ public class Level {
 					blocks.add(new Solidairblock(x, y, this, currentChunk));
 				} else if (y > ((worldHeight - 2) / 4) - (rand.nextInt(2) + 4)) { // (worldHeight - 2) / 4? 1/4 of the world will be sky!
 					if (firstPlaced) {
-						if (rand.nextInt(100) > 80) {
+                        // Place water or first block if first block has not been placed
+						if (rand.nextInt(100) > 80) { // 20% chance? (make < 20 instead of > 80) TODO
+							// Water if by a grass, dirt, or water block on left or top side, otherwise air
 							if (blocks.get((x - 1) * worldHeight + y) instanceof Waterf || blocks.get(x * worldHeight + (y - 1)) instanceof Waterf) {
 								blocks.add(new Waterf(x, y, this, currentChunk));
 							} else if ((blocks.get((x - 1) * worldHeight + y) instanceof Dirtblock || blocks.get((x - 1) * worldHeight + y) instanceof Grassblock) && rand.nextInt(100) > 50) {
@@ -63,14 +80,71 @@ public class Level {
 								blocks.add(new Airblock(x, y, this, currentChunk));
 							}
 						} else {
-							blocks.add(new Grassblock(x, y, this, currentChunk)); // Water Check here!
+							blocks.add(new Grassblock(x, y, this, currentChunk)); // Water Check here! Turn to dirt/sand if water above TODO
+                            // Tell that the first block in column/x-pos has been placed
 							firstPlaced = false;
 						}
 					} else {
-						if (amtDirt >= rand.nextInt(3) + 2) {
-							if (rand.nextInt(100) > 12) {
+                        // First block has already been placed.
+						if (amtDirt >= rand.nextInt(3) + 2) { // If current amt of dirt placed is above a number between 2 and 5, place ores/stone
+                            int chance = rand.nextInt(100);
+                            /*if (y > worldHeight - (worldHeight / 4) + 100 && chance <= 95) { // if near bottom of world; 95% chance, Lava
+                                blocks.add(new Lavaf(x, y, this, currentChunk));
+                            } else if (chance <= 5) {
+                                blocks.add(new Gravelblock(x, y, this, currentChunk));
+                            } else if (chance <= 23) {
+                                blocks.add(new Coalblock(x, y, this, currentChunk));
+                            } else if (chance <= 100-73) {
+                                blocks.add(new Ironblock(x, y, this, currentChunk));
+                            } else if (chance <= 30) {
+                                blocks.add(new Copperblock(x, y, this, currentChunk));
+                            } else if (chance <= 30) {
+                                blocks.add(new Tinblock(x, y, this, currentChunk));
+                            } else if (chance <= 20) {
+                                blocks.add(new Rubyblock(x, y, this, currentChunk));
+                            } else if (chance <= 20) {
+                                blocks.add(new Diamondblock(x, y, this, currentChunk));
+                            } else {
+                                blocks.add(new Stoneblock(x, y, this, currentChunk));
+                            }*/
+
+                            for (int i = 0; i < composition.length; i++) {
+                                if (chance >= composition[i].getX() && chance <= composition[i].getY()) {
+                                    switch(i) {
+                                        case 0:
+                                            blocks.add(new Gravelblock(x, y, this, currentChunk));
+                                            break;
+                                        case 1:
+                                            blocks.add(new Coalblock(x, y, this, currentChunk));
+                                            break;
+                                        case 2:
+                                            blocks.add(new Ironblock(x, y, this, currentChunk));
+                                            break;
+                                        case 3:
+                                            blocks.add(new Copperblock(x, y, this, currentChunk));
+                                            break;
+                                        case 4:
+                                            blocks.add(new Tinblock(x, y, this, currentChunk));
+                                            break;
+                                        case 5:
+                                            blocks.add(new Rubyblock(x, y, this, currentChunk));
+                                            break;
+                                        case 6:
+                                            blocks.add(new Diamondblock(x, y, this, currentChunk));
+                                            break;
+                                        case 7:
+                                            blocks.add(new Stoneblock(x, y, this, currentChunk));
+                                            break;
+                                        default:
+                                            blocks.add(new Stoneblock(x, y, this, currentChunk));
+                                    }
+                                    break;
+                                }
+                            }
+
+							/*if (rand.nextInt(100) > 12) { // 88% chance, Stone
 								blocks.add(new Stoneblock(x, y, this, currentChunk));
-							} else if (y > worldHeight - (worldHeight / 4) + 100 && rand.nextInt(100) > 5) {
+							} else if (y > worldHeight - (worldHeight / 4) + 100 && rand.nextInt(100) > 5) { // if near bottom of world; 95% chance, Lava
 								blocks.add(new Lavaf(x, y, this, currentChunk));
 							} else if (rand.nextInt(100) > 57) {
 								blocks.add(new Coalblock(x, y, this, currentChunk));
@@ -86,7 +160,7 @@ public class Level {
 								blocks.add(new Diamondblock(x, y, this, currentChunk));
 							} else {
 								blocks.add(new Gravelblock(x, y, this, currentChunk));
-							}
+							}*/
 						} else {
 							blocks.add(new Dirtblock(x, y, this, currentChunk)); // Water check here!
 						}
@@ -180,11 +254,11 @@ public class Level {
 		return yOffset;
 	}
 
-	public int getXOffsetBlocks() {
+	public double getXOffsetBlocks() {
 		return xOffset / Resources.tileSize;
 	}
 
-	public int getYOffsetBlocks() {
+	public double getYOffsetBlocks() {
 		return yOffset / Resources.tileSize;
 	}
 
@@ -201,11 +275,11 @@ public class Level {
 		this.yOffset += yOffset;
 	}
 
-	public void addXOffsetBlocks(int xOffset) {
+	public void addXOffsetBlocks(double xOffset) {
 		this.xOffset += xOffset * Resources.tileSize;
 	}
 
-	public void addYOffsetBlocks(int yOffset) {
+	public void addYOffsetBlocks(double yOffset) {
 		this.yOffset += yOffset * Resources.tileSize;
 	}
 

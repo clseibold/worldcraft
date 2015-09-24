@@ -30,7 +30,7 @@ public class Game extends Canvas implements Runnable {
 	private Listener input;
 	
 	public BasicMob basicMob;
-	
+
 	public Level level;
 	
 	public Game() {
@@ -156,19 +156,21 @@ public class Game extends Canvas implements Runnable {
 	public void tick() {
 		level.tick();
 		
-		if (input.down) {
+		if (input.down && basicMob.getY() < level.worldHeight - 1) {
 			// level.addYOffsetPixels(10);
 			basicMob.changePositionBy(0.0, 0.05);
-		} else if (input.up && level.getYOffsetPixels() > 1.0 * Resources.tileSize) {
+		} else if (input.up && basicMob.getY() > 1.0) {
 			// level.addYOffsetPixels(-10);
 			basicMob.changePositionBy(0.0, -0.05);
 		}
-		if (input.right) { // Do eventually, make stop at end of level
+		if (input.right && basicMob.getY() < level.worldWidth - 1) { // Do eventually, make stop at end of level
 			// level.addXOffsetPixels(10);
+			basicMob.changePositionBy(0.05, 0.0);
+		} else if (input.left && basicMob.getX() > 1.0) {
 			basicMob.changePositionBy(-0.05, 0.0);
-		} else if (input.left && level.getXOffsetPixels() > 1.0 * Resources.tileSize) {
-			// level.addXOffsetPixels(-10);
-			basicMob.changePositionBy(-0.05, 0.0);
+			if (level.getXOffsetBlocks() > 0.5) { // Why does it have to be .5 for the first block (the solid air block)???
+				level.addXOffsetBlocks(-0.05);
+			}
 		}
 		if (input.dragging) {
 			level.addXOffsetPixels(-(input.X - input.pressX));
@@ -184,7 +186,7 @@ public class Game extends Canvas implements Runnable {
 			createBufferStrategy(3);
 			return;
 		}
-		
+
 		Graphics g = bs.getDrawGraphics();
 		
 		g.drawImage(image, 0, 0, SIZE.width, SIZE.height, null);
