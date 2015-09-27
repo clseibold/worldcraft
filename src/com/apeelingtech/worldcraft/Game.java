@@ -67,7 +67,7 @@ public class Game extends Canvas implements Runnable {
 	public synchronized void init() {
 		// Define objects here
 		level = new Level(new Random().nextLong());
-		basicMob = new BasicMob(level.getXOffsetBlocks(), level.getYOffsetBlocks(), level);
+		basicMob = new BasicMob(level.getXOffsetBlocks() + 5, level.getYOffsetBlocks() - 10, level);
 	}
 	
 	public synchronized void stop() {

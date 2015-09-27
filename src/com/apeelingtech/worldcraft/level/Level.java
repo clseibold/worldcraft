@@ -3,7 +3,6 @@ package com.apeelingtech.worldcraft.level;
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Vector;
 
 import com.apeelingtech.worldcraft.Game;
 import com.apeelingtech.worldcraft.blocks.Airblock;
@@ -16,7 +15,6 @@ import com.apeelingtech.worldcraft.blocks.Dirtblock;
 import com.apeelingtech.worldcraft.blocks.Grassblock;
 import com.apeelingtech.worldcraft.blocks.Gravelblock;
 import com.apeelingtech.worldcraft.blocks.Ironblock;
-import com.apeelingtech.worldcraft.blocks.Lavaf;
 import com.apeelingtech.worldcraft.blocks.Rubyblock;
 import com.apeelingtech.worldcraft.blocks.Solidairblock;
 import com.apeelingtech.worldcraft.blocks.Stoneblock;
@@ -25,6 +23,7 @@ import com.apeelingtech.worldcraft.blocks.Waterf;
 import com.apeelingtech.worldcraft.entity.Entity;
 import com.apeelingtech.worldcraft.graphics.Sprite;
 import com.apeelingtech.worldcraft.util.Resources;
+import com.apeelingtech.worldcraft.util.Vector2;
 
 public class Level {
 	
@@ -197,6 +196,10 @@ public class Level {
 				if (block instanceof AnimatedBlock) {
 					((AnimatedBlock) block).tick();
 				}
+
+                for (Entity entity : entities) {
+                    entity.tick();
+                }
 			}
 		}
 	}
@@ -245,6 +248,26 @@ public class Level {
 	 * @param entity Entity to be removed.
 	 */
 	public void removeEntity(Entity entity) { entities.remove(entity); } // Will this work!?!?
+
+    public ArrayList<Block> getBlocks() {
+        return blocks;
+    }
+
+    public Block getBlock(int x, int y) {
+        return blocks.get(x * worldHeight + y);
+    }
+
+    /*public Block getBlock(double x, double y) {
+        return blocks.get((int)Math.floor(x * worldHeight + y));
+    }*/
+
+    public Block getBlock(int i) {
+        return blocks.get(i);
+    }
+
+    public Block getBlock(double i) {
+        return blocks.get((int)i);
+    }
 
 	public int getXOffsetPixels() {
 		return xOffset;
