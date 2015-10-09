@@ -9,8 +9,10 @@ import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
+import com.apeelingtech.worldcraft.core.Window;
 import com.apeelingtech.worldcraft.entity.mob.BasicMob;
 import com.apeelingtech.worldcraft.input.Listener;
+import com.apeelingtech.worldcraft.layers.BlocksLayer;
 import com.apeelingtech.worldcraft.level.Level;
 import com.apeelingtech.worldcraft.util.Resources;
 
@@ -55,7 +57,12 @@ public class Game extends Canvas implements Runnable {
 	}
 	
 	public static void main(String[] args) {
-		new Game().start();
+
+		// new Game().start();
+
+		Level level = new Level(new Random().nextLong());
+		Window window = new Window("WorldCraft", 800, 600);
+		window.addLayer(new BlocksLayer(level));
 	}
 	
 	public synchronized void start() {

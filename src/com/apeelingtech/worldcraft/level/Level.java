@@ -33,6 +33,7 @@ public class Level {
 	private int xOffset = 1 * Resources.tileSize, yOffset = ((worldHeight - 2) / 4) * Resources.tileSize, chunk = 1; // Offset of blocks, in pixels
 	private Random rand;
     private Vector2 composition[];
+	private int startPositions[];
 	
 	public Level(long seed) {
 		rand = new Random();
@@ -50,6 +51,11 @@ public class Level {
             last += percents[i];
             composition[i].scale(total, 100);
         }
+		startPositions = new int[worldWidth];
+		for (int x = 1; x < startPositions.length; x++) {
+			// startPositions[x] = (()/5) +
+		}
+
         generateLevel();
     }
 	
@@ -87,26 +93,6 @@ public class Level {
                         // First block has already been placed.
 						if (amtDirt >= rand.nextInt(3) + 2) { // If current amt of dirt placed is above a number between 2 and 5, place ores/stone
                             int chance = rand.nextInt(100);
-                            /*if (y > worldHeight - (worldHeight / 4) + 100 && chance <= 95) { // if near bottom of world; 95% chance, Lava
-                                blocks.add(new Lavaf(x, y, this, currentChunk));
-                            } else if (chance <= 5) {
-                                blocks.add(new Gravelblock(x, y, this, currentChunk));
-                            } else if (chance <= 23) {
-                                blocks.add(new Coalblock(x, y, this, currentChunk));
-                            } else if (chance <= 100-73) {
-                                blocks.add(new Ironblock(x, y, this, currentChunk));
-                            } else if (chance <= 30) {
-                                blocks.add(new Copperblock(x, y, this, currentChunk));
-                            } else if (chance <= 30) {
-                                blocks.add(new Tinblock(x, y, this, currentChunk));
-                            } else if (chance <= 20) {
-                                blocks.add(new Rubyblock(x, y, this, currentChunk));
-                            } else if (chance <= 20) {
-                                blocks.add(new Diamondblock(x, y, this, currentChunk));
-                            } else {
-                                blocks.add(new Stoneblock(x, y, this, currentChunk));
-                            }*/
-
                             for (int i = 0; i < composition.length; i++) {
                                 if (chance >= composition[i].getX() && chance <= composition[i].getY()) {
                                     switch(i) {

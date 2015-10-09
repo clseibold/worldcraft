@@ -27,7 +27,7 @@ public class Mob extends Entity {
         Block block = level.getBlock((int)Math.floor(this.x + this.width), (int)Math.floor(this.y + this.height));
         if (x + this.x > this.x && y + this.y > this.y) {
             block = level.getBlock((int)Math.floor(this.x + this.width + x), (int)Math.floor(this.y + this.height + y));
-            System.out.println("TESTING");
+            //System.out.println("TESTING");
         }
         if (block instanceof Airblock) {
             changePositionBy(x, y);
