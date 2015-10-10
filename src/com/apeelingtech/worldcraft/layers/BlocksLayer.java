@@ -1,6 +1,7 @@
 package com.apeelingtech.worldcraft.layers;
 
 import com.apeelingtech.worldcraft.Game;
+import com.apeelingtech.worldcraft.entity.mob.BasicMob;
 import com.apeelingtech.worldcraft.events.Event;
 import com.apeelingtech.worldcraft.events.EventDispatcher;
 import com.apeelingtech.worldcraft.events.types.MouseMovedEvent;
@@ -20,6 +21,7 @@ public class BlocksLayer extends Layer {
 
     public BlocksLayer(Level level) {
         this.level = level;
+        new BasicMob(level.getXOffsetBlocks() + 5, level.getYOffsetBlocks() - 10, level);
     }
 
     @Override
@@ -37,15 +39,15 @@ public class BlocksLayer extends Layer {
     }
 
     private boolean mouseMoved(MouseMovedEvent e) {
+        x = e.getX();
+        y = e.getY();
         if (e.isDragged()) {
-            level.addXOffsetPixels(-(e.getX() - pressX));
-            level.addYOffsetPixels(-(e.getY() - pressY));
+            level.addXOffsetPixels(-(x - pressX));
+            level.addYOffsetPixels(-(y - pressY));
             pressX = e.getX();
             pressY = e.getY();
         }
 
-        x = e.getX();
-        y = e.getY();
         return e.isDragged();
     }
 

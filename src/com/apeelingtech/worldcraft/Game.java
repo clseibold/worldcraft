@@ -1,91 +1,25 @@
 package com.apeelingtech.worldcraft;
 
-import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Frame;
-import java.awt.Graphics;
-import java.awt.image.BufferStrategy;
-import java.awt.image.BufferedImage;
 import java.util.Random;
 
 import com.apeelingtech.worldcraft.core.Window;
-import com.apeelingtech.worldcraft.entity.mob.BasicMob;
-import com.apeelingtech.worldcraft.input.Listener;
 import com.apeelingtech.worldcraft.layers.BlocksLayer;
 import com.apeelingtech.worldcraft.level.Level;
-import com.apeelingtech.worldcraft.util.Resources;
 
-public class Game extends Canvas implements Runnable {
-	private static final long serialVersionUID = 1L;
+public class Game /*extends Canvas implements Runnable*/ {
 	
-	public int fps = 0;
-	public boolean paused = false;
 	public static final Dimension SIZE = new Dimension(800, 600);
-	public BufferedImage image = new BufferedImage(SIZE.width, SIZE.height, BufferedImage.TYPE_INT_RGB);
-	
-	private int frameCount = 0;
-	public boolean running = false;
 	private static final String TITLE = "World Craft 3.1";
-	private Thread thread;
-	// private Frame frame; - Converted to local field (in Constructor)
-	private Listener input;
-	
-	public BasicMob basicMob;
 
-	public Level level;
-	
-	public Game() {
-		Frame frame;
-		setSize(SIZE);
-		thread = new Thread(this, "Main");
-		frame = new Frame();
-		input = new Listener(this);
-
-		// Listeners
-		frame.addWindowListener(input);
-		addMouseListener(input);
-		addKeyListener(input);
-		addMouseMotionListener(input);
-		addMouseWheelListener(input);
-		
-		frame.setTitle(TITLE);
-		frame.add(this);
-		frame.pack();
-		frame.setLocationRelativeTo(null);
-		frame.setVisible(true);
-	}
-	
 	public static void main(String[] args) {
-
 		// new Game().start();
-
 		Level level = new Level(new Random().nextLong());
-		Window window = new Window("WorldCraft", 800, 600);
+		Window window = new Window(TITLE, 800, 600);
 		window.addLayer(new BlocksLayer(level));
 	}
-	
-	public synchronized void start() {
-		init();
-		running = true;
-		thread.start();
-	}
-	
-	public synchronized void init() {
-		// Define objects here
-		level = new Level(new Random().nextLong());
-		basicMob = new BasicMob(level.getXOffsetBlocks() + 5, level.getYOffsetBlocks() - 10, level);
-	}
-	
-	public synchronized void stop() {
-		running = false;
-		try {
-			thread.join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
 
+/*
 	@Override
 	public void run() {
 		requestFocus();
@@ -158,35 +92,6 @@ public class Game extends Canvas implements Runnable {
 		stop();
 	}
 	
-	// boolean firstRender = true;
-	
-	public void tick() {
-		level.tick();
-		
-		if (input.down && basicMob.getY() < level.worldHeight - 1) {
-			// level.addYOffsetPixels(10);
-			basicMob.changePositionBy(0.0, 0.05);
-		} else if (input.up && basicMob.getY() > 1.0) {
-			// level.addYOffsetPixels(-10);
-			basicMob.changePositionBy(0.0, -0.05);
-		}
-		if (input.right && basicMob.getY() < level.worldWidth - 1) { // Do eventually, make stop at end of level
-			// level.addXOffsetPixels(10);
-			basicMob.changePositionBy(0.05, 0.0);
-		} else if (input.left && basicMob.getX() > 1.0) {
-			basicMob.changePositionBy(-0.05, 0.0);
-			if (level.getXOffsetBlocks() > 0.5) { // Why does it have to be .5 for the first block (the solid air block)???
-				level.addXOffsetBlocks(-0.05);
-			}
-		}
-		if (input.dragging) {
-			level.addXOffsetPixels(-(input.X - input.pressX));
-			level.addYOffsetPixels(-(input.Y - input.pressY));
-			input.pressX = input.X;
-			input.pressY = input.Y;
-		}
-	}
-	
 	public void render(float interpolation) {
 		BufferStrategy bs = getBufferStrategy();
 		if (bs == null) {
@@ -202,18 +107,6 @@ public class Game extends Canvas implements Runnable {
 		
 		g.dispose();
 		bs.show();
-	}
-	
-	public void render(Graphics g, float interpolation) {
-		g.setColor(Color.white);
-		// Rendering and Drawing area
-		
-		g.setColor(Color.blue);
-		g.fillRect(0, 0, SIZE.width, SIZE.height);
-		
-		level.render(g, interpolation, (SIZE.width / Resources.tileSize) + 1, (SIZE.height / Resources.tileSize) + 1);
-		
-		frameCount++;
-	}
+	}*/
 	
 }

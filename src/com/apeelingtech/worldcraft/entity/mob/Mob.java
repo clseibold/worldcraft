@@ -20,7 +20,7 @@ public class Mob extends Entity {
 	
 	@Override
 	public void tick() {
-        move(0.05, 0.05);
+        //move(0.05, 0.05);
 	}
 
     public void move(double x, double y) {
