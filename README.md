@@ -6,3 +6,6 @@ World craft is a simple game written in Java. At this moment, I am completely re
 2. Rewrite rendering system to be pixel based (WIP)
 3. Finish the world generation (Water, Lava, and Trees)
 4. Remake textures, and make them smaller (maybe 16 x 16 blocks)
+
+## Download ##
+You can download the game at the Apeeling-Tech website [here](http://apeelingtech.x10.mx/#!/worldcraft).
