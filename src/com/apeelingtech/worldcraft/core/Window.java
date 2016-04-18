@@ -1,16 +1,14 @@
 package com.apeelingtech.worldcraft.core;
 
-import com.apeelingtech.worldcraft.events.types.MouseMovedEvent;
-import com.apeelingtech.worldcraft.events.types.MousePressedEvent;
-import com.apeelingtech.worldcraft.events.types.MouseReleasedEvent;
+import com.apeelingtech.worldcraft.events.types.*;
 import com.apeelingtech.worldcraft.layers.Layer;
 import com.apeelingtech.worldcraft.events.Event;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
+import java.awt.event.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseWheelEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,8 +16,9 @@ import java.util.List;
  * Created by christian on 10/9/15.
  */
 public class Window extends JFrame {
-
-    private Screen screen;
+	private static final long serialVersionUID = 1L;
+	
+	private Screen screen;
     private List<Layer> layerList = new ArrayList<>();
 
     public Window(String name, int width, int height) {
@@ -60,11 +59,41 @@ public class Window extends JFrame {
             }
         });
 
+        screen.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                KeyPressedEvent event = new KeyPressedEvent(e.getKeyCode());
+                onEvent(event);
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                KeyReleasedEvent event = new KeyReleasedEvent(e.getKeyCode());
+                onEvent(event);
+            }
+        });
+        
+        screen.addMouseWheelListener(new MouseWheelListener() {
+
+			@Override
+			public void mouseWheelMoved(MouseWheelEvent e) {
+				MouseWheelMovedEvent event = new MouseWheelMovedEvent(e.getWheelRotation());
+				onEvent(event);
+			}
+        	
+        });
+
         screen.init();
         run();
     }
 
     private void run() {
+    	//requestFocus();
+    	onUpdate();
         screen.beginRendering();
         screen.clear();
         onRender(screen.getGraphicsObject());
@@ -85,9 +114,15 @@ public class Window extends JFrame {
     }
 
     private void onRender(Graphics g) {
-        for (int i = 0; i < layerList.size(); i++) {
-            layerList.get(i).onRender(g);
+        for (Layer layer : layerList) {
+        	layer.onRender(g);
         }
+    }
+    
+    private void onUpdate() {
+    	for (Layer layer : layerList) {
+    		layer.onUpdate();
+    	}
     }
 
     public void addLayer(Layer layer) {

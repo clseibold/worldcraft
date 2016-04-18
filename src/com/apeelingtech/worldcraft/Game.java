@@ -5,6 +5,7 @@ import java.util.Random;
 
 import com.apeelingtech.worldcraft.core.Window;
 import com.apeelingtech.worldcraft.layers.BlocksLayer;
+import com.apeelingtech.worldcraft.layers.GUILayer;
 import com.apeelingtech.worldcraft.level.Level;
 
 public class Game /*extends Canvas implements Runnable*/ {
@@ -17,6 +18,7 @@ public class Game /*extends Canvas implements Runnable*/ {
 		Level level = new Level(new Random().nextLong());
 		Window window = new Window(TITLE, 800, 600);
 		window.addLayer(new BlocksLayer(level));
+		window.addLayer(new GUILayer());
 	}
 
 /*

@@ -178,16 +178,14 @@ public class Sprite {
 	 * @param level The level the sprite will be drawn into. Need this to get the level's offsets.
 	 */
 	public void draw(Graphics g, double x, double y, Level level) {
-		int nX = ((int) x * width) + (int)((x - (int) x) * width); // Convert's blocks to pixels
-		int nY = ((int) y * height) + (int)((y - (int) y) * height);
-		int nSX = level.getXOffsetPixels();
-		int nSY = level.getYOffsetPixels();
-		//g.drawImage()
-		g.drawImage(getImage(), nX - nSX, nY - nSY, nX + width - nSX, nY + height - nSY, this.x, this.y, this.x + this.width, this.y + this.height, null);
+		int nX = ((int) x * Resources.tileSize) + (int)((x - (int) x) * Resources.tileSize); // Position in pixels
+		int nY = ((int) y * Resources.tileSize) + (int)((y - (int) y) * Resources.tileSize);
+		//g.drawImage(image, screenx, screeny, screenx + width, screeny + height, picx, picy, picx + width, picy + height, null);
+		g.drawImage(getImage(), nX - level.getXOffsetPixels(), nY - level.getYOffsetPixels(), nX + width - level.getXOffsetPixels(), nY + height - level.getYOffsetPixels(), this.x, this.y, this.x + this.width, this.y + this.height, null);
 	}
 
 	/**
-	 * Draws an image into the level, and scales it to a different size different from the sprite's size.
+	 * Draws an image into the level, and scales it to a size different from the sprite's size.
 	 * The location inside the level in pixels minus the offset gives the proper location on-screen.
 	 * @param g The graphics object
 	 * @param x X position in the level (in blocks). Converted into pixels by this method.
@@ -197,8 +195,8 @@ public class Sprite {
 	 * @param level The level the sprite will be drawn into. Need this to get the level's offsets.
 	 */
 	public void drawWithScale(Graphics g, double x, double y, int width, int height, Level level) {
-		int nX = ((int) x * width) + (int)((x - (int) x) * width); // Convert's blocks to pixels
-		int nY = ((int) y * height) + (int)((y - (int) y) * height);
+		int nX = ((int) x * Resources.tileSize) + (int)((x - (int) x) * Resources.tileSize); // Convert's blocks to pixels
+		int nY = ((int) y * Resources.tileSize) + (int)((y - (int) y) * Resources.tileSize);
 		int nSX = level.getXOffsetPixels();
 		int nSY = level.getYOffsetPixels();
 		

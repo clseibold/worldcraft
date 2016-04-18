@@ -30,10 +30,14 @@ public class Level {
 	public final int worldWidth = 2000, worldHeight = 2000;
 	private volatile ArrayList<Block> blocks = new ArrayList<>();
 	private volatile ArrayList<Entity> entities = new ArrayList<>();
-	private int xOffset = 1 * Resources.tileSize, yOffset = ((worldHeight - 2) / 4) * Resources.tileSize, chunk = 1; // Offset of blocks, in pixels
+	private int xOffset = 0, yOffset = 0, chunk = 1; // Offset of blocks, in pixels
 	private Random rand;
     private Vector2 composition[];
 	private int startPositions[];
+	private boolean scrolling = false;
+	private int scrollToX = 0; // in Pixels
+	private int scrollToY = 0; // in Pixels
+	private double scrollSpeed = 10;
 	
 	public Level(long seed) {
 		rand = new Random();
@@ -76,9 +80,9 @@ public class Level {
                         // Place water or first block if first block has not been placed
 						if (rand.nextInt(100) > 80) { // 20% chance? (make < 20 instead of > 80) TODO
 							// Water if by a grass, dirt, or water block on left or top side, otherwise air
-							if (blocks.get((x - 1) * worldHeight + y) instanceof Waterf || blocks.get(x * worldHeight + (y - 1)) instanceof Waterf) {
+							if (blocks.get(y + (x - 1) * worldHeight) instanceof Waterf || blocks.get((y - 1) + x * worldHeight) instanceof Waterf) {
 								blocks.add(new Waterf(x, y, this, currentChunk));
-							} else if ((blocks.get((x - 1) * worldHeight + y) instanceof Dirtblock || blocks.get((x - 1) * worldHeight + y) instanceof Grassblock) && rand.nextInt(100) > 50) {
+							} else if ((blocks.get(y + (x - 1) * worldHeight) instanceof Dirtblock || blocks.get(y + (x - 1) * worldHeight) instanceof Grassblock) && rand.nextInt(100) > 50) {
 								blocks.add(new Waterf(x, y, this, currentChunk));
 								// firstPlaced = false; // Maybe keep!
 							} else {
@@ -152,7 +156,7 @@ public class Level {
 						amtDirt++;
 					}
 				} else {
-					if (blocks.get((x - 1) * worldHeight + y) instanceof Waterf || blocks.get(x * worldHeight + (y - 1)) instanceof Waterf) {
+					if (blocks.get(y + (x - 1) * worldHeight) instanceof Waterf || blocks.get((y - 1) + x * worldHeight) instanceof Waterf) {
 						blocks.add(new Waterf(x, y, this, currentChunk));
 					} else {
 						blocks.add(new Airblock(x, y, this, currentChunk));
@@ -163,14 +167,15 @@ public class Level {
 	}
 	
 	public void tick() {
-		if ((xOffset / Resources.tileSize) >= 0 && (xOffset / Resources.tileSize) + (Game.SIZE.width / Resources.tileSize) <= worldWidth) {
-			if ((yOffset / Resources.tileSize) >= 0 && (yOffset / Resources.tileSize) + (Game.SIZE.height / Resources.tileSize) <= worldHeight) {
-				chunk = blocks.get(((xOffset / Resources.tileSize) * worldHeight) + (yOffset / Resources.tileSize)).chunk;
-			}
-		}
+		/*
+		//if (this.getXOffsetBlocks() >= 0 && (xOffset / Resources.tileSize) + (Game.SIZE.width / Resources.tileSize) <= worldWidth) {
+			//if (getYOffsetBlocks() >= 0 && (yOffset / Resources.tileSize) + (Game.SIZE.height / Resources.tileSize) <= worldHeight) {
+				chunk = blocks.get((int)getXOffsetBlocks() + (int)getYOffsetBlocks() * worldWidth).chunk;
+			//}
+		//}
 		
 		// System.out.println(chunk + " : " + ((double)xOffset / (double)Resources.tileSize) + " : " + ((double)yOffset / (double)Resources.tileSize));
-		for (int x = (20 * chunk) - 40; x <= (20 * chunk) + 20; x++) {
+		for (int x = (20 * chunk) - 40; x <= (20 * chunk) - 40 + 20; x++) {
 			if (x < 0 || x + (Game.SIZE.width / Resources.tileSize) > worldWidth) {
 				continue;
 			}
@@ -183,10 +188,37 @@ public class Level {
 					((AnimatedBlock) block).tick();
 				}
 
-                for (Entity entity : entities) {
-                    entity.tick();
-                }
 			}
+		}*/
+		
+		if (scrolling) { // Should this accelerate? TODO
+			if (xOffset > scrollToX) {
+				xOffset += -scrollSpeed;
+			} else if (xOffset < scrollToX) {
+				xOffset += scrollSpeed;
+			}
+			if (yOffset > scrollToY) {
+				yOffset += -scrollSpeed;
+			} else if (yOffset < scrollToY) {
+				yOffset += scrollSpeed;
+			}
+			
+			if (xOffset != scrollToX && xOffset <= scrollToX + scrollSpeed && xOffset >= scrollToX - scrollSpeed) {
+				xOffset = scrollToX;
+			}
+			if (yOffset != scrollToY && yOffset <= scrollToY + scrollSpeed && yOffset >= scrollToY - scrollSpeed) {
+				yOffset = scrollToY;
+			}
+			
+			if (xOffset == scrollToX && yOffset == scrollToY) {
+				scrolling = false;
+				scrollToX = 0;
+				scrollToY = 0;
+			}
+		}
+		
+		for (Entity entity : entities) {
+			entity.tick();
 		}
 	}
 	
@@ -199,16 +231,13 @@ public class Level {
 				if (x < 0 || x + (Game.SIZE.width / Resources.tileSize) > worldWidth) {
 					continue;
 				}
-				blocks.get((x * worldHeight) + y).render(g, interpolation);
+				blocks.get(y + x * worldHeight).render(g, interpolation);
 			}
 		}
 		
 		for (Entity entity : entities) {
 			entity.render(g, interpolation);
 		}
-		//System.out.println(entities + "");
-		
-		Sprite.invCell.draw(g, 5, 5);
 		
 		// Cursor
 		// if (!game.inventory.isOpen && !game.isPaused && !game.character.isDead) {
@@ -240,11 +269,11 @@ public class Level {
     }
 
     public Block getBlock(int x, int y) {
-        return blocks.get(x * worldHeight + y);
+        return blocks.get(y + x * worldHeight);
     }
 
     /*public Block getBlock(double x, double y) {
-        return blocks.get((int)Math.floor(x * worldHeight + y));
+        return blocks.get((int)Math.floor(y + x * worldHeight));
     }*/
 
     public Block getBlock(int i) {
@@ -284,6 +313,11 @@ public class Level {
 		this.yOffset += yOffset;
 	}
 
+	public void addOffsetBlocks(double xOffset, double yOffset) {
+		this.xOffset += xOffset * Resources.tileSize;
+		this.yOffset += yOffset * Resources.tileSize;
+	}
+	
 	public void addXOffsetBlocks(double xOffset) {
 		this.xOffset += xOffset * Resources.tileSize;
 	}
@@ -292,4 +326,52 @@ public class Level {
 		this.yOffset += yOffset * Resources.tileSize;
 	}
 
+	public void setOffsetBlocks(double xOffset, double yOffset) {
+		this.xOffset = (int)(xOffset * Resources.tileSize);
+		this.yOffset = (int)(yOffset * Resources.tileSize);
+	}
+	
+	public void setXOffsetBlocks(double xOffset) {
+		this.xOffset = (int) (xOffset * Resources.tileSize);
+	}
+	
+	public void setYOffsetBlocks(double yOffset) {
+		this.yOffset = (int)(yOffset * Resources.tileSize);
+	}
+	
+	public void setOffsetPixels(int xOffset, int yOffset) {
+		this.xOffset = xOffset;
+		this.yOffset = yOffset;
+	}
+	
+	public void setXOffsetPixels(int xOffset) {
+		this.xOffset = xOffset;
+	}
+	
+	public void setYOffsetPixels(int yOffset) {
+		this.yOffset = yOffset;
+	}
+	
+	public void setOffsetCenterBlock(double xOffset, double yOffset) {
+		this.xOffset = (int) ((xOffset + Game.SIZE.width / Resources.tileSize / 2) * Resources.tileSize);
+		this.yOffset = (int) ((yOffset + Game.SIZE.width / Resources.tileSize / 2) * Resources.tileSize);
+	}
+	
+	public void setOffsetCenterPixel(int xOffset, int yOffset) {
+		this.xOffset = xOffset + Game.SIZE.width / 2;
+		this.yOffset = yOffset + Game.SIZE.width / 2;
+	}
+	
+	public void scrollToBlock(double xOffset, double yOffset) { // TODO
+		scrolling = true;
+		scrollToX = (int)(xOffset * Resources.tileSize);
+		scrollToY = (int)(yOffset * Resources.tileSize);
+	}
+	
+	public void scrollToPixel(int xOffset, int yOffset) { // TODO
+		scrolling = true;
+		scrollToX = xOffset;
+		scrollToY = yOffset;
+	}
+	
 }

@@ -7,8 +7,9 @@ import java.awt.image.BufferStrategy;
  * Created by christian on 10/9/15.
  */
 public class Screen extends Canvas {
-
-    private BufferStrategy bs;
+	private static final long serialVersionUID = 1L;
+	
+	private BufferStrategy bs;
     private Graphics g;
 
     public Screen(int width, int height) {
@@ -25,7 +26,7 @@ public class Screen extends Canvas {
     }
 
     public void clear() {
-        g.setColor(Color.WHITE);
+        g.setColor(Color.BLUE); // Background/Sky Color
         g.fillRect(0, 0, getWidth(), getHeight());
     }
 

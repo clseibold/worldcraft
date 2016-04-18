@@ -6,9 +6,9 @@ import com.apeelingtech.worldcraft.graphics.Sprite;
 import com.apeelingtech.worldcraft.level.Level;
 
 public abstract class Entity {
-	
-	protected double x = 0, y = 0; // location in blocks. Double because location can be in between the start of blocks.
-	protected int width = 0, height = 0; // Should this be a double to allow a fraction of a block?
+	// TODO: Change to pixels
+	protected double x, y; // location in blocks. Double because location can be in between the start of blocks.
+	protected int width, height; // Should this be a double to allow a fraction of a block?
 	protected boolean removed = false;
 	protected Level level;
 	protected Sprite sprite;
@@ -60,6 +60,8 @@ public abstract class Entity {
 	 * @param level Level to change to
 	 */
 	public final void changeLevel(Level level) { // Make removeEntity() in level, make this method remove entity from current level, change level, and add entity to new level.
+		this.level.removeEntity(this);
+		level.addEntity(this);
 		this.level = level;
 	}
 	

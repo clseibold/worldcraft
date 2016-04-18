@@ -4,6 +4,7 @@ import java.awt.Graphics;
 
 import com.apeelingtech.worldcraft.graphics.Sprite;
 import com.apeelingtech.worldcraft.level.Level;
+import com.apeelingtech.worldcraft.util.Resources;
 
 public class AnimatedBlock extends Block {
 	private static final long serialVersionUID = 1L;
@@ -50,6 +51,7 @@ public class AnimatedBlock extends Block {
 	public void render(Graphics g, float interpolation) {
 		if (currentSprite != Sprite.air) {
 			currentSprite.draw(g, x, y, level);
+			//currentSprite.drawWithScale(g, x, y, Resources.tileSize, Resources.tileSize, level);
 		}
 	}
 	

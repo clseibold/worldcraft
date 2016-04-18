@@ -5,6 +5,7 @@ import java.awt.Rectangle;
 
 import com.apeelingtech.worldcraft.graphics.Sprite;
 import com.apeelingtech.worldcraft.level.Level;
+import com.apeelingtech.worldcraft.util.Resources;
 
 public class Block extends Rectangle {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +27,7 @@ public class Block extends Rectangle {
 	public void render(Graphics g, float interpolation) {
 		if (sprite != Sprite.air) {
 			sprite.draw(g, x, y, level);
+			//sprite.drawWithScale(g, x, y, Resources.tileSize, Resources.tileSize, level);
 		}
 	}
 	
