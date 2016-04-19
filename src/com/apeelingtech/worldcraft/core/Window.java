@@ -99,7 +99,7 @@ public class Window extends JFrame {
         onRender(screen.getGraphicsObject());
         screen.endRendering();
         try {
-            Thread.sleep(3);
+            Thread.sleep(20);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

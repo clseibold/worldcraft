@@ -4,11 +4,7 @@ import com.apeelingtech.worldcraft.Game;
 import com.apeelingtech.worldcraft.entity.mob.Character;
 import com.apeelingtech.worldcraft.events.Event;
 import com.apeelingtech.worldcraft.events.EventDispatcher;
-import com.apeelingtech.worldcraft.events.types.KeyPressedEvent;
-import com.apeelingtech.worldcraft.events.types.KeyReleasedEvent;
-import com.apeelingtech.worldcraft.events.types.MouseMovedEvent;
-import com.apeelingtech.worldcraft.events.types.MousePressedEvent;
-import com.apeelingtech.worldcraft.events.types.MouseWheelMovedEvent;
+import com.apeelingtech.worldcraft.events.types.*;
 import com.apeelingtech.worldcraft.level.Level;
 import com.apeelingtech.worldcraft.util.Resources;
 
@@ -21,7 +17,8 @@ import java.awt.event.KeyEvent;
 public class BlocksLayer extends Layer {
 
     private Level level;
-    private int pressX, pressY, x, y;
+    private int pressX, pressY, x, y, pressButton;
+    private boolean dragged = false;
     
     // Will be eventually moved into level
     private Character character;
@@ -39,6 +36,7 @@ public class BlocksLayer extends Layer {
     public void onEvent(Event event) {
         EventDispatcher eventDispatcher = new EventDispatcher(event);
         eventDispatcher.dispatch(Event.Type.MOUSE_PRESSED, (Event e) -> mousePressed((MousePressedEvent) e));
+        eventDispatcher.dispatch(Event.Type.MOUSE_RELEASED, (Event e) -> mouseReleased((MouseReleasedEvent) e));
         eventDispatcher.dispatch(Event.Type.MOUSE_MOVED, (Event e) -> mouseMoved((MouseMovedEvent) e));
         eventDispatcher.dispatch(Event.Type.KEY_PRESSED, (Event e) -> keyPressed((KeyPressedEvent) e));
         eventDispatcher.dispatch(Event.Type.KEY_RELEASED, (Event e) -> keyReleased((KeyReleasedEvent) e));
@@ -48,7 +46,15 @@ public class BlocksLayer extends Layer {
     private boolean mousePressed(MousePressedEvent e) {
         pressX = e.getX();
         pressY = e.getY();
+        pressButton = e.getButton();
 
+        return true;
+    }
+
+    private boolean mouseReleased(MouseReleasedEvent e) {
+        level.mouseReleased(pressX, pressY, pressButton, dragged);
+
+        dragged = false;
         return true;
     }
 
@@ -62,6 +68,8 @@ public class BlocksLayer extends Layer {
             pressX = e.getX();
             pressY = e.getY();
         }
+
+        dragged = e.isDragged();
 
         return e.isDragged();
     }

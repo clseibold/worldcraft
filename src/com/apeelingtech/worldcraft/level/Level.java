@@ -1,12 +1,12 @@
 package com.apeelingtech.worldcraft.level;
 
 import java.awt.Graphics;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.Random;
 
 import com.apeelingtech.worldcraft.Game;
 import com.apeelingtech.worldcraft.blocks.Airblock;
-import com.apeelingtech.worldcraft.blocks.AnimatedBlock;
 import com.apeelingtech.worldcraft.blocks.Block;
 import com.apeelingtech.worldcraft.blocks.Coalblock;
 import com.apeelingtech.worldcraft.blocks.Copperblock;
@@ -21,7 +21,6 @@ import com.apeelingtech.worldcraft.blocks.Stoneblock;
 import com.apeelingtech.worldcraft.blocks.Tinblock;
 import com.apeelingtech.worldcraft.blocks.Waterf;
 import com.apeelingtech.worldcraft.entity.Entity;
-import com.apeelingtech.worldcraft.graphics.Sprite;
 import com.apeelingtech.worldcraft.util.Resources;
 import com.apeelingtech.worldcraft.util.Vector2;
 
@@ -236,7 +235,10 @@ public class Level {
 		}
 		
 		for (Entity entity : entities) {
-			entity.render(g, interpolation);
+			if (entity.getX() >= xOffset / Resources.tileSize && entity.getX() <= (xOffset / Resources.tileSize) + renW
+					&& entity.getY() >= yOffset / Resources.tileSize && entity.getY() <= (yOffset / Resources.tileSize) + renH) {
+				entity.render(g, interpolation);
+			}
 		}
 		
 		// Cursor
@@ -283,6 +285,27 @@ public class Level {
     public Block getBlock(double i) {
         return blocks.get((int)i);
     }
+
+	public synchronized void mouseReleased(int x, int y, int button, boolean dragged) {
+		// Delete the block (only if the mouse was not dragged)
+		int blockX = (x + xOffset) / Resources.tileSize;
+		int blockY = (y + yOffset) / Resources.tileSize;
+		if (blockX < 0 || blockX > worldWidth || blockY < 0 || blockY > worldHeight) {
+			return;
+		}
+		// Turn the block currently pointing at into air.
+		if (button == MouseEvent.BUTTON1 && !dragged) { // Left clicking
+			Block currentBlock = blocks.get(blockY + blockX * worldHeight);
+			if (currentBlock.breakable && !(currentBlock instanceof Airblock)) {
+				blocks.set(blockY + blockX * worldHeight, new Airblock(blockX, blockY, this, chunk)); // TODO: chunk is incorrect
+			}
+		} else if (button == MouseEvent.BUTTON3) {
+			Block currentBlock = blocks.get(blockY + blockX * worldHeight);
+			if (currentBlock instanceof Airblock) {
+				blocks.set(blockY + blockX * worldHeight, new Dirtblock(blockX, blockY, this, chunk)); // TODO: chunk is incorrect
+			}
+		}
+	}
 
 	public int getXOffsetPixels() {
 		return xOffset;
@@ -373,5 +396,4 @@ public class Level {
 		scrollToX = xOffset;
 		scrollToY = yOffset;
 	}
-	
 }
