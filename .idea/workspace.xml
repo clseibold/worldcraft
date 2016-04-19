@@ -2,71 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="add39de1-4387-4c12-b4c3-38325aa07fac" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/Game.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Airblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Airblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/AnimatedBlock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/AnimatedBlock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Block.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Block.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Coalblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Coalblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Cobbleblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Cobbleblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Copperblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Copperblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Diamondblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Diamondblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Dirtblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Dirtblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Grassblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Grassblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Gravelblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Gravelblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/GroundBlock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/GroundBlock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Ironblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Ironblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Lavaf.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Lavaf.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Leafblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Leafblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Leftladder.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Leftladder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/OreBlock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/OreBlock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Rightladder.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Rightladder.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Rubyblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Rubyblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Sandblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Sandblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Solidairblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Solidairblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Stoneblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Stoneblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Tinblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Tinblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Waterf.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/Waterf.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/WoodBlock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/WoodBlock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/WoodRblock.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/blocks/WoodRblock.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/core/Screen.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/core/Screen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/core/Window$1.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/core/Window$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/core/Window$2.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/core/Window$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/core/Window$3.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/core/Window$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/core/Window$4.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/core/Window$4.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/core/Window.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/core/Window.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/entity/Entity.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/entity/Entity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/entity/mob/BasicMob.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/entity/mob/BasicMob.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/entity/mob/Character.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/entity/mob/Character.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/entity/mob/Mob.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/entity/mob/Mob.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/Event$Type.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/Event$Type.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/Event.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/Event.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/EventDispatcher.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/EventDispatcher.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/EventHandler.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/EventHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/EventListener.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/EventListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/KeyEvent.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/KeyEvent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/KeyPressedEvent.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/KeyPressedEvent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/KeyReleasedEvent.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/KeyReleasedEvent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/MouseButtonEvent.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/MouseButtonEvent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/MouseMovedEvent.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/MouseMovedEvent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/MousePressedEvent.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/MousePressedEvent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/MouseReleasedEvent.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/MouseReleasedEvent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/MouseWheelMovedEvent.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/events/types/MouseWheelMovedEvent.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/graphics/Sprite.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/graphics/Sprite.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/graphics/SpriteSheet.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/graphics/SpriteSheet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/layers/BlocksLayer.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/layers/BlocksLayer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/layers/GUILayer.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/layers/GUILayer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/layers/Layer.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/layers/Layer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/level/Level.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/level/Level.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/util/Resources.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/util/Resources.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/util/Vector2.class" afterPath="$PROJECT_DIR$/bin/com/apeelingtech/worldcraft/util/Vector2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/world_craftD_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/apeelingtech/worldcraft/core/Window.java" afterPath="$PROJECT_DIR$/src/com/apeelingtech/worldcraft/core/Window.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/apeelingtech/worldcraft/layers/BlocksLayer.java" afterPath="$PROJECT_DIR$/src/com/apeelingtech/worldcraft/layers/BlocksLayer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/apeelingtech/worldcraft/level/Level.java" afterPath="$PROJECT_DIR$/src/com/apeelingtech/worldcraft/level/Level.java" />
     </list>
     <ignored path="worldcraft.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,8 +40,8 @@
       <file leaf-file-name="Level.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/apeelingtech/worldcraft/level/Level.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="276" column="49" selection-start-line="276" selection-start-column="49" selection-end-line="276" selection-end-column="49" />
+            <state relative-caret-position="370">
+              <caret line="256" column="40" selection-start-line="256" selection-start-column="40" selection-end-line="256" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -197,7 +136,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -214,6 +152,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="worldcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worldcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="worldcraft" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -301,36 +253,18 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="worldcraft" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="worldcraft" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="worldcraft" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="blocks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.Game">
     <configuration default="false" name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -563,7 +497,7 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24173027" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24173027" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16319445" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -599,6 +533,54 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/apeelingtech/worldcraft/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/apeelingtech/worldcraft/level/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/apeelingtech/worldcraft/blocks/Airblock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/apeelingtech/worldcraft/blocks/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/apeelingtech/worldcraft/core/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1638">
+          <caret line="101" column="27" selection-start-line="101" selection-start-column="27" selection-end-line="101" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/apeelingtech/worldcraft/layers/BlocksLayer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="56" column="24" selection-start-line="56" selection-start-column="24" selection-end-line="56" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/apeelingtech/worldcraft/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -665,8 +647,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/apeelingtech/worldcraft/level/Level.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="276" column="49" selection-start-line="276" selection-start-column="49" selection-end-line="276" selection-end-column="49" />
+        <state relative-caret-position="370">
+          <caret line="256" column="40" selection-start-line="256" selection-start-column="40" selection-end-line="256" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -703,5 +685,82 @@
         </state>
       </provider>
     </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>world-craftD:jar</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>world-craftD</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
