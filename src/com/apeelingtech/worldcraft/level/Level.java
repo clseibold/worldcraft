@@ -62,6 +62,25 @@ public class Level {
         generateLevel();
     }
 	
+	private void newGenerateLevel() {
+		int startY = (worldHeight - 2) / 4;
+		for (int x = 0; x < worldWidth; x++) {
+			if (x % 20.0 == 0.0) {
+				currentChunk++;
+			}
+			for (int y = 0; y < worldHeight; y++) { // Make different biomes have different trig functions for the top terrain (also must have smooth transitions between biomes)
+				if (y == startY - Math.floor(4 * Math.sin(x / 15) + 4)) { // TODO: Add random numbers to trig function for more randomness of terrain?
+					blocks.add(new Grassblock(x, y, this, currentChunk));
+				} else if (y >= startY - Math.floor(4 * Math.sine(x / 15) + 4)) { // TODO: Do I need to do Math.floor(), can't I just cast to int?
+					// Other generation based on random numbers
+					blocks.add(new Dirtblock(x, y, this, currentChunk));
+				} else {
+					blocks.add(new Airblock(x, y, this, currentChunk));
+				}
+			}
+		}
+	}
+	
 	private void generateLevel() {
 		int currentChunk = 0;
 		for (int x = 0; x < worldWidth; x++) {
