@@ -213,9 +213,9 @@ public class Level {
 			}
 		}*/
 		
-		if (scrolling) { // Should this accelerate? TODO
+		if (scrolling) {
 			if (xOffset > scrollToX) {
-				xOffset += -scrollSpeed;
+				xOffset += -scrollSpeed * (xOffset - scrollToX >= 30 * Resources.tileSize ? 3 : 1);
 			} else if (xOffset < scrollToX) {
 				xOffset += scrollSpeed;
 			}

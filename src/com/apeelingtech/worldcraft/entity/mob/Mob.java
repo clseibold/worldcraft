@@ -25,7 +25,7 @@ public class Mob extends Entity {
 	public void tick() {
 		//System.out.println("Ticking");
 		if (jumping) {
-			if (!move(0.0, -0.07)) { // When hitting an above block
+			if (!move(0.0, -0.1)) { // When hitting an above block
 				jumping = false;
 				jumpingTotal = 0;
 				falling = true;
@@ -37,7 +37,7 @@ public class Mob extends Entity {
 				falling = true;
 			}
 		}
-        if (!jumping && move(0.0, 0.07)) { // Simple falling
+        if (!jumping && move(0.0, 0.1)) { // Simple falling Def: 0.07
 	        falling = true;
         } else {
         	falling = false;

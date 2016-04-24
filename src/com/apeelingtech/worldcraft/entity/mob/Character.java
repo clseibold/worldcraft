@@ -12,14 +12,12 @@ public class Character extends Mob {
 	}
 	
 	@Override
-	public void tick() {
-		//System.out.println("Ticking");
+	public void tick() { // Should I put left and right movement in here?
+
 		if (jumping) {
-			if (move(0.0, -0.07)) {
+			if (move(0.0, -0.09)) {
 				if (y >= level.getYOffsetBlocks() + (Game.SIZE.height / Resources.tileSize) - 4) {
-		        	/*level.setYOffsetBlocks(y);
-		        	level.addYOffsetPixels(-Game.SIZE.height / 2);*/
-					level.scrollToBlock(level.getXOffsetBlocks(), y - (Game.SIZE.height / 2 / Resources.tileSize));
+					level.scrollToBlock(x /* + whatever currently moving at */ - (Game.SIZE.width / 2 / Resources.tileSize), y - (Game.SIZE.height / 2 / Resources.tileSize));
 		        }
 			} else { // When hitting an above block
 				jumping = false;
@@ -33,11 +31,9 @@ public class Character extends Mob {
 				falling = true;
 			}
 		}
-        if (!jumping && move(0.0, 0.07)) { // Simple falling
+        if (!jumping && move(0.0, 0.09)) { // Simple falling Def: 0.07
 	        if (y >= level.getYOffsetBlocks() + (Game.SIZE.height / Resources.tileSize) - 4) {
-	        	/*level.setYOffsetBlocks(y);
-	        	level.addYOffsetPixels(-Game.SIZE.height / 2);*/
-	        	level.scrollToBlock(level.getXOffsetBlocks(), y - (Game.SIZE.height / 2 / Resources.tileSize));
+	        	level.scrollToBlock(x /* + whatever currently moving at */ - (Game.SIZE.width / 2 / Resources.tileSize), y - (Game.SIZE.height / 2 / Resources.tileSize));
 	        }
 	        falling = true;
         } else {

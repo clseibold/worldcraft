@@ -63,8 +63,6 @@ public class BlocksLayer extends Layer {
         y = e.getY();
         if (e.isDragged()) {
         	level.addOffsetPixels(-(x - pressX), -(y - pressY));
-        	// Make mob positions in pixels (do same with their movement)
-            // mob1.move(-(x - pressX) / Resources.tileSize, -(y - pressY) / Resources.tileSize);
             pressX = e.getX();
             pressY = e.getY();
         }
