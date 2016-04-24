@@ -1,9 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="world-craftD:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/world_craftD_jar</output-path>
-    <root id="archive" name="world-craftD.jar">
-      <element id="module-output" name="world-craftD" />
-      <element id="library" level="module" name="res" module-name="world-craftD" />
-    </root>
-  </artifact>
-</component>
