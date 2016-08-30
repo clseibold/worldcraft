@@ -17,11 +17,11 @@ import java.util.List;
  */
 public class Window extends JFrame {
 	private static final long serialVersionUID = 1L;
-	
-	private Screen screen;
-    private List<Layer> layerList = new ArrayList<>();
 
-    public Window(String name, int width, int height) {
+	private Screen screen;
+	private List<Layer> layerList = new ArrayList<>();
+
+	public Window(String name, int width, int height) {
         screen = new Screen(width, height);
 
         setTitle(name);
@@ -76,7 +76,7 @@ public class Window extends JFrame {
                 onEvent(event);
             }
         });
-        
+
         screen.addMouseWheelListener(new MouseWheelListener() {
 
 			@Override
@@ -84,7 +84,7 @@ public class Window extends JFrame {
 				MouseWheelMovedEvent event = new MouseWheelMovedEvent(e.getWheelRotation());
 				onEvent(event);
 			}
-        	
+
         });
 
         screen.init();
@@ -118,7 +118,7 @@ public class Window extends JFrame {
         	layer.onRender(g);
         }
     }
-    
+
     private void onUpdate() {
     	for (Layer layer : layerList) {
     		layer.onUpdate();

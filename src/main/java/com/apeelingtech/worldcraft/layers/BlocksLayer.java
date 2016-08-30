@@ -19,10 +19,10 @@ public class BlocksLayer extends Layer {
     private Level level;
     private int pressX, pressY, x, y, pressButton;
     private boolean dragged = false;
-    
+
     // Will be eventually moved into level
     private Character character;
-    private boolean[] keys;
+    private boolean[] keys; // Should be static and moved into main Game Class (where rest of input stuff is)
 
     public BlocksLayer(Level level) {
         this.level = level;
@@ -71,7 +71,7 @@ public class BlocksLayer extends Layer {
 
         return e.isDragged();
     }
-    
+
     private boolean mouseWheelMoved(MouseWheelMovedEvent e) {
     	Resources.tileSize += e.getWheelRotation();
     	return true;
@@ -86,7 +86,7 @@ public class BlocksLayer extends Layer {
     	keys[e.getKeyCode()] = false;
     	return true;
     }
-    
+
     @Override
     public void onUpdate() {
         if (keys[KeyEvent.VK_UP] && !character.isFalling()) {
@@ -122,7 +122,7 @@ public class BlocksLayer extends Layer {
         		}
         	}
         }
-        
+
         level.tick();
     }
 
