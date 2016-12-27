@@ -15,7 +15,7 @@ public class Character extends Mob {
 	public void tick() { // Should I put left and right movement in here?
 
 		if (jumping) {
-			if (move(0.0, -0.09)) {
+			if (move(0.0, -0.099)) { // TODO: -0.09
 				if (y >= level.getYOffsetBlocks() + (Game.SIZE.height / Resources.tileSize) - 4) {
 					level.scrollToBlock(x /* + whatever currently moving at */ - (Game.SIZE.width / 2 / Resources.tileSize), y - (Game.SIZE.height / 2 / Resources.tileSize));
 		        }
@@ -25,13 +25,13 @@ public class Character extends Mob {
 				falling = true;
 			}
 			jumpingTotal++;
-			if (jumpingTotal == 30) {
+			if (jumpingTotal == 20) {
 				jumping = false;
 				jumpingTotal = 0;
 				falling = true;
 			}
 		}
-        if (!jumping && move(0.0, 0.09)) { // Simple falling Def: 0.07
+        if (!jumping && move(0.0, 0.099)) { // Simple falling Def: 0.07
 	        if (y >= level.getYOffsetBlocks() + (Game.SIZE.height / Resources.tileSize) - 4) {
 	        	level.scrollToBlock(x /* + whatever currently moving at */ - (Game.SIZE.width / 2 / Resources.tileSize), y - (Game.SIZE.height / 2 / Resources.tileSize));
 	        }
